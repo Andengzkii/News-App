@@ -1,0 +1,27 @@
+
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+h
+8app/src/main/java/com/project/newsapp/Models/Source.java,4\b\4be9319bc7a646f612ab143c74fada800cb5670f
+o
+?app/src/main/java/com/project/newsapp/Models/NewsHeadlines.java,e\e\ee5d6289c6bf31571950431cd100da01ca5e2802
+q
+Aapp/src/main/java/com/project/newsapp/Models/NewsApiResponse.java,c\c\cceb05f31e7008d89f7abbdde67e2342b0d4a8a4
+g
+7app/src/main/java/com/project/newsapp/MainActivity.java,2\f\2ff35cb59967efb6cb632698ca0a004c7e6f5e1f
+k
+;app/src/main/java/com/project/newsapp/CustomViewHolder.java,3\a\3a61242f3d51cb532ef8fca68376ca12fa7f6f93
+o
+?app/src/main/java/com/project/newsapp/Models/CustomAdapter.java,6\4\64342790aa9adee426f984acc7651c5f86e3db2a
+h
+8app/src/main/java/com/project/newsapp/CustomAdapter.java,6\8\68cfa3332863527535aace23ffcc05fd23e96331
+i
+9app/src/main/java/com/project/newsapp/RequestManager.java,3\0\30baac274e2176a139b04de85dba0490dab958d1
+n
+>app/src/main/java/com/project/newsapp/OnFetchDataListener.java,2\5\258f0bbd6af445b0b34683e21ef420958ca47540
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+i
+9app/src/main/java/com/project/newsapp/SelectListener.java,1\c\1caec947cca95d56111cf26f4b44d0ebeb350779
+j
+:app/src/main/java/com/project/newsapp/DetailsActivity.java,3\b\3bba52ab285b6d74d39f70b5ad1720fe32c11075

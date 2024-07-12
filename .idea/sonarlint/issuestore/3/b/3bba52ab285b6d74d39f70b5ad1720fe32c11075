@@ -1,0 +1,11 @@
+
+–	java:S116"TRename this field "txt_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÄúî8Àì´Š2J$733916ef-fc10-469b-a43a-a59ad692559b
+—	java:S116"URename this field "txt_author" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÄúî8Áì´Š2J$98f64ba4-4475-4175-98c2-f371abd15d40
+•	java:S116"SRename this field "txt_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÄúî8Áì´Š2J$c0061d1e-f120-4211-9780-9e75833a6a1b
+—	java:S116"URename this field "txt_detail" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÄúî8Âì´Š2J$76c51498-f391-45d8-9cde-573954c27995
+˜	java:S116"VRename this field "txt_content" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÄúî8Âì´Š2J$ab6cd5ad-f990-47da-90e3-165ce5be92e1
+•	java:S116"SRename this field "img_news" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İëàü8Âì´Š2J$682f6b12-f6ea-4cf6-b513-d257d0644c98
+Š
+java:S1659"GDeclare "txt_author" and all following declarations on a separate line.(ïÄúî8Ôì´Š2J$77854128-cc75-4c38-8323-9dcc4edf8c5d
+„
+java:S1874#"<Remove this use of "getSerializableExtra"; it is deprecated.(˜›¦ëûÿÿÿÿ8İì´Š2J$4759ae04-a634-4bfd-858b-e7cd38f1a7fe
