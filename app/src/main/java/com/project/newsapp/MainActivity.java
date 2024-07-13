@@ -3,16 +3,14 @@ package com.project.newsapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,8 +24,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     RecyclerView recyclerView;
     CustomAdapter adapter;
     ProgressDialog dialog;
-    Button b1,b2,b3,b4,b5,b6,b7;
+    Button b1, b2, b3, b4, b5, b6, b7;
     SearchView searchView;
+    private static final String RECYCLER_VIEW_STATE = "recycler_view_state";
+    private Parcelable recyclerViewState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         b7 = findViewById(R.id.btn_7);
         b7.setOnClickListener(this);
 
+        if (savedInstanceState != null) {
+            recyclerViewState = savedInstanceState.getParcelable(RECYCLER_VIEW_STATE);
+        }
+
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, "general", null);
     }
@@ -78,19 +82,17 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
         @Override
         public void onFetchData(List<NewsHeadlines> list, String message) {
-            if (list.isEmpty()){
-                Toast.makeText(MainActivity.this,"No Data Found", Toast.LENGTH_SHORT).show();
-            }
-            else {
+            if (list.isEmpty()) {
+                Toast.makeText(MainActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
+            } else {
                 showNews(list);
                 dialog.dismiss();
             }
-
         }
 
         @Override
         public void onError(String message) {
-            Toast.makeText(MainActivity.this, "An Error Occured!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "An Error Occurred!", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -100,12 +102,17 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
         adapter = new CustomAdapter(this, list, this);
         recyclerView.setAdapter(adapter);
+
+        if (recyclerViewState != null) {
+            recyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);
+        }
     }
 
     @Override
     public void OnNewsClicked(NewsHeadlines headlines) {
-        startActivity(new Intent(MainActivity.this, DetailsActivity.class)
-                .putExtra("data", headlines));
+        String url = headlines.getUrl();
+        Log.d("MainActivity", "URL: " + url);
+        startActivity(new Intent(MainActivity.this, DetailsActivity.class).putExtra("url", url));
     }
 
     @Override
@@ -115,6 +122,21 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         dialog.setTitle("Fetching News Articles of " + category);
         dialog.show();
         RequestManager manager = new RequestManager(this);
-        manager.getNewsHeadlines(listener, category , null);
+        manager.getNewsHeadlines(listener, category, null);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        recyclerViewState = recyclerView.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable(RECYCLER_VIEW_STATE, recyclerViewState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            recyclerViewState = savedInstanceState.getParcelable(RECYCLER_VIEW_STATE);
+        }
     }
 }

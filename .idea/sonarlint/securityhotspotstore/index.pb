@@ -11,8 +11,6 @@ g
 7app/src/main/java/com/project/newsapp/MainActivity.java,2\f\2ff35cb59967efb6cb632698ca0a004c7e6f5e1f
 k
 ;app/src/main/java/com/project/newsapp/CustomViewHolder.java,3\a\3a61242f3d51cb532ef8fca68376ca12fa7f6f93
-o
-?app/src/main/java/com/project/newsapp/Models/CustomAdapter.java,6\4\64342790aa9adee426f984acc7651c5f86e3db2a
 h
 8app/src/main/java/com/project/newsapp/CustomAdapter.java,6\8\68cfa3332863527535aace23ffcc05fd23e96331
 i
@@ -25,3 +23,9 @@ i
 9app/src/main/java/com/project/newsapp/SelectListener.java,1\c\1caec947cca95d56111cf26f4b44d0ebeb350779
 j
 :app/src/main/java/com/project/newsapp/DetailsActivity.java,3\b\3bba52ab285b6d74d39f70b5ad1720fe32c11075
+i
+9app/src/main/java/com/project/newsapp/SplashActivity.java,8\9\89603e17d99058090db749db8766cfb78468192e
+I
+gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e

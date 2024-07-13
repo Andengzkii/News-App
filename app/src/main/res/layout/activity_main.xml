@@ -91,7 +91,6 @@
 
     </HorizontalScrollView>
 
-
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

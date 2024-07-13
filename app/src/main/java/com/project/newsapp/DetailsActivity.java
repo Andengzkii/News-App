@@ -1,44 +1,46 @@
 package com.project.newsapp;
 
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
+import android.util.Log;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.project.newsapp.Models.NewsHeadlines;
-import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
-    NewsHeadlines headlines;
-    TextView txt_title, txt_author, txt_time, txt_detail, txt_content;
-    ImageView img_news;
-
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        txt_title = findViewById(R.id.text_detail_title);
-        txt_author = findViewById(R.id.text_detail_author);
-        txt_time = findViewById(R.id.text_detail_time);
-        txt_detail = findViewById(R.id.text_detail_detail);
-        txt_content = findViewById(R.id.text_detail_content);
-        img_news = findViewById(R.id.img_detail_news);
+        String url = getIntent().getStringExtra("url");
+        Log.d("DetailsActivity", "Received URL: " + url);  // Log the URL to verify
 
+        if (url != null && !url.isEmpty()) {
+            webView = findViewById(R.id.web_view);
+            WebSettings webSettings = webView.getSettings();
+            webSettings.setJavaScriptEnabled(true);
+            webView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                    Log.e("WebViewError", "Error: " + description);
+                    super.onReceivedError(view, errorCode, description, failingUrl);
+                }
+            });
+            webView.loadUrl(url);
+        } else {
+            Log.e("DetailsActivity", "URL is null or empty");
+        }
+    }
 
-        headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");
-
-        txt_title.setText(headlines.getTitle());
-        txt_author.setText(headlines.getAuthor());
-        txt_time.setText(headlines.getPublishedAt());
-        txt_detail.setText(headlines.getDescription());
-        txt_content.setText(headlines.getContent());
-        Picasso.get().load(headlines.getUrlToImage()).into(img_news);
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
