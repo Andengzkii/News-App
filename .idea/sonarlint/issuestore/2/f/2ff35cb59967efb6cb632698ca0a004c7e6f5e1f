@@ -1,13 +1,13 @@
 
-\
-java:S1659"?Declare "b2" and all following declarations on a separate line.(Û¯­8í­ÃÓŠ2
-X
-java:S1874"6Remove this use of "ProgressDialog"; it is deprecated.(¡æÓÂüÿÿÿÿ8ô­ÃÓŠ2
-S
-java:S18747"6Remove this use of "ProgressDialog"; it is deprecated.(†ÀÍ™8®ÃÓŠ2
+‚
+java:S1659"?Declare "b2" and all following declarations on a separate line.(Û¯­8‚ÅßİŠ2J$755ddc6b-e7e2-4286-92c3-cb3b0d42c382
+~
+java:S1874"6Remove this use of "ProgressDialog"; it is deprecated.(¡æÓÂüÿÿÿÿ8åÍİØŠ2J$57dc9197-6b62-45f6-b45c-46433ef49ebe
+y
+java:S1874:"6Remove this use of "ProgressDialog"; it is deprecated.(†ÀÍ™8›ÅßİŠ2J$4c2f6fc0-684d-476b-8fc4-77377d0cc8b0
 }
-java:S1874K"5Remove this use of "getParcelable"; it is deprecated.(°ô”±ùÿÿÿÿ8«‚ºÓŠ2J$e39d6f0e-91d6-4e72-8e3e-16c5483809b8
-X
-java:S1874‹"5Remove this use of "getParcelable"; it is deprecated.(°ô”±ùÿÿÿÿ8š®ÃÓŠ2
+java:S1874N"5Remove this use of "getParcelable"; it is deprecated.(°ô”±ùÿÿÿÿ8¡ÅßİŠ2J$bb4ca041-5430-4f61-9511-42661e485ca4
+~
+java:S1874’"5Remove this use of "getParcelable"; it is deprecated.(°ô”±ùÿÿÿÿ8ŒÆßİŠ2J$fc00922c-dab3-4eba-bae5-b0bab52b06c4
 
-java:S3398c">Move this method into the anonymous class declared at line 82.(óèú8¬‚ºÓŠ2J$b52aba49-c8d0-4dc3-b676-a6160a555cf6
+java:S3398i">Move this method into the anonymous class declared at line 85.(óèú8ÆßİŠ2J$e9673820-588f-436a-833e-ed24231778b7

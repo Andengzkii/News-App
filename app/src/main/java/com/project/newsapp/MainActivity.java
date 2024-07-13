@@ -14,6 +14,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.project.newsapp.Models.NewsApiResponse;
 import com.project.newsapp.Models.NewsHeadlines;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     RecyclerView recyclerView;
     CustomAdapter adapter;
     ProgressDialog dialog;
+    LinearProgressIndicator progressIndicator; // Your LinearProgressIndicator
     Button b1, b2, b3, b4, b5, b6, b7;
     SearchView searchView;
     private static final String RECYCLER_VIEW_STATE = "recycler_view_state";
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         setContentView(R.layout.activity_main);
 
         searchView = findViewById(R.id.search_view);
+        progressIndicator = findViewById(R.id.progress_bar); // Initialize it here
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -86,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
                 Toast.makeText(MainActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
             } else {
                 showNews(list);
+                changeInProgress(View.GONE); // Hide progress indicator
                 dialog.dismiss();
             }
         }
@@ -93,6 +97,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         @Override
         public void onError(String message) {
             Toast.makeText(MainActivity.this, "An Error Occurred!", Toast.LENGTH_SHORT).show();
+            changeInProgress(View.GONE); // Hide progress indicator
+            dialog.dismiss();
         }
     };
 
@@ -121,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         String category = button.getText().toString();
         dialog.setTitle("Fetching News Articles of " + category);
         dialog.show();
+        changeInProgress(View.VISIBLE); // Show progress indicator
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, category, null);
     }
@@ -137,6 +144,12 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
             recyclerViewState = savedInstanceState.getParcelable(RECYCLER_VIEW_STATE);
+        }
+    }
+
+    private void changeInProgress(int visibility) {
+        if (progressIndicator != null) {
+            progressIndicator.setVisibility(visibility);
         }
     }
 }
